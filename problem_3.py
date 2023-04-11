@@ -4,7 +4,7 @@
 #                   number of iterations used in this approximation and displays the resulting value.
 
 
-def getPi(n):
+def get_pi(n):
     
     # turn string into int
     n = int(n)
@@ -24,4 +24,4 @@ def getPi(n):
     print(totalSum)
     return totalSum
     
-getPi(n)
+get_pi(n)
