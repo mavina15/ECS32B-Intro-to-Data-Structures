@@ -5,32 +5,20 @@
 
 def tidBit(n):
     
-    downPay = .10*n
-    annIntRate = .12
-    monthPay = (n-downPay)*.05
     month = 1
-    currentBal = n
+    downPay = n*.10
+    annIntRate = .12
+    currentBal = n - downPay
+    monthlyPay = currentBal*.05
     
-    while True:
-        currentBal = n - downPay
-        monthlyInt = currentBal * annIntRate / 12
-        monthlyPrin = monthPay - monthlyInt 
-        remainBal = currentBal - monthPay
+    while currentBal > 0:
+        currentBal = currentBal - monthlyPay
+        monthlyInt = currentBal*annIntRate/12
+        monthlyPrin = monthlyPay - monthlyInt
+        monthlyPay = monthlyPay + monthlyPrin // wrong
+        remainBal = currentBal - monthlyPay
+        print(month, currentBal, monthlyPay, monthlyInt, monthlyPrin, remainBal)
+        month = month + 1
         
-        print(month, n, currentBal, monthlyInt, monthlyPrin, monthPay, remainBal)
-        return month, n, currentBal, monthlyInt, monthlyPrin, monthPay, remainBal
         
-        if remainBal > 0:
-            month += 1
-            currentBal = n - downPay
-            monthlyInt = currentBal * annIntRate / 12
-            monthlyPrin = monthPay - monthlyInt 
-            remainBal = currentBal - monthPay
-            
-            print(month, n, currentBal, monthlyInt, monthlyPrin, monthPay, remainBal)
-            return month, n, currentBal, monthlyInt, monthlyPrin, monthPay, remainBal
-        else:
-            break
-    print("done")
-    
 tidBit(5000)
