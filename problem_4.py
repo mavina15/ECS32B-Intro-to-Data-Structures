@@ -7,24 +7,27 @@ def tidBit(n):
     
     price = float(n)
     month = 1
-    downPay = price*.10
-    annIntRate = .12
-    currentBal = price - downPay
-    monthlyPay = (price-downPay)*.05
-    monthlyInt = currentBal*annIntRate/12
-    monthlyPrin = monthlyPay - monthlyInt
-    pay = monthlyPay + monthlyPrin
-    remainBal = currentBal - pay
+    downPay = 0.10
+    annIntRate = 0.12
+    monthlyPay = 0.05
     
+    currentBal = price - (price * downPay)
+    monthlyPay = currentBal * monthlyPay
+    monthlyInt = annIntRate/12
+
     print('{:<7s} {:<20s} {:<20s} {:<20s} {:<15s} {:<20s}'.format('Month','Starting Balance', 'Interest to Pay', 'Principal to Pay','Payment','Ending Balance'))
     
-    while remainBal > 0:
-            monthlyInt = currentBal*annIntRate/12
-            monthlyPrin = monthlyPay - monthlyInt
-            pay = monthlyPay + monthlyPrin
-            remainBal = currentBal - pay
-            print('{:<7d} {:<20.2f} {:<20.2f} {:<20.2f} {:<15f} {:<20.2f}'.format(month, currentBal, monthlyInt, monthlyPrin, pay, remainBal))
-            currentBal = currentBal - pay
+    while currentBal > 0:
+            if currentBal < monthlyPay:
+                lessInt = 0
+                monthlyPrin = currentBal
+                monthlyPay = currentBal
+            else:
+                lessInt = currentBal * monthlyInt
+                monthlyPrin = monthlyPay - lessInt
+            remainBal = currentBal - monthlyPrin
+            print('{:<7d} {:<20.2f} {:<20.2f} {:<20.2f} {:<15f} {:<20.2f}'.format(month, currentBal, lessInt, monthlyPrin, monthlyPay, remainBal))
+            currentBal = remainBal
             month = month + 1
         
 tidBit(5000)
