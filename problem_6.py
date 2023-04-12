@@ -29,4 +29,4 @@ def recursive_gcd(a, b):
     else: 
         print("Try again")
         
-recursive_gcd(32, 12)
+recursive_gcd(a, b)
