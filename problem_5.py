@@ -1,3 +1,8 @@
+# Mel Avina-Beltran
+# ECS 32B H1 P5 4/13/23
+# List Merge: recursion to merge two sorted lists into a merged list which is obviously a bigger list 
+#             containing all elements from the two sorted lists.
+
 def mergeSort(a, b):
     
     # changing strings to lists 
@@ -22,14 +27,14 @@ def merge(a, b):
         return mergeSort(a, b)
     
     # lists are sliced again  
-    mid1 = len(a) // 2
-    mid2 = len(b) // 2
+    oneMid = len(a) // 2
+    twoMid = len(b) // 2
     
-    oneLeft = a[:mid1]
-    oneRight = a[mid1:]
+    oneLeft = a[:oneMid]
+    oneRight = a[oneMid:]
     
-    twoLeft = b[:mid2]
-    twoRight = b[mid2:]
+    twoLeft = b[:twoMid]
+    twoRight = b[twoMid:]
 
     sortLeft = merge(oneLeft, twoLeft)
     sortRight = merge(oneRight, twoRight)
