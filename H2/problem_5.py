@@ -1,6 +1,6 @@
 # Mel Avina-Beltran
 # 4/20/23
-# H2 P6
+# H2 P5
 # Goal: Tests the quicksort algorithm
 
 def insertionSort(lyst, left, right): i = left + 1
