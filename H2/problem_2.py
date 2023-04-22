@@ -24,4 +24,5 @@ def main():
   print(seqSearch(3, [0, 1, 2]))
   print(seqSearch(3, [0, 4, 5, 6]))
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": 
+  main()
