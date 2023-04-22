@@ -1,7 +1,7 @@
 # Mel Avina-Beltran
 # 4/20/23
 # H2 P4
-# Goal: Allows the user to specify the direction of a selection sort
+# Goal: function that lets user redirect the selection sort
 
 def selectionSort(lyst, reverse = False): 
   # list is sorted in ascending order if reverse is false, else list is sorted in descending order
