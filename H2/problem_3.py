@@ -27,4 +27,5 @@ def main():
   reverse(lyst)
   print(lyst)
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": 
+  main()
