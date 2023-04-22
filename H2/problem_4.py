@@ -37,7 +37,7 @@ def swap(lyst, x, y):
   lyst[x], lyst[y] = lyst[y], lyst[x]
   
 def main():
-  # creates 4 list, sorted and printed 
+  # creates 4 lists, sorted and printed 
   lyst = [2, 4, 3, 0, 1, 5] 
   selectionSort(lyst) 
   print(lyst)
