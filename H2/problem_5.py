@@ -58,4 +58,5 @@ def main(size = 1000, sort = quicksort):
   sort(lyst) 
   print(lyst)
 
-if __name__ == "__main__": main()
+if __name__ == "__main__": 
+  main()
