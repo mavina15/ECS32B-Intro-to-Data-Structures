@@ -5,7 +5,7 @@ Author: Mel Avina-Beltran
 Date: 5/2/23
 '''
 
-class Stack:
+class Stack():
 
     def __init__(self, sourceCollection = None): # Constructor function
         self.sourceCollection = sourceCollection
@@ -23,8 +23,9 @@ class Stack:
 
     def push(self, item): # Adds item to the top of the stack
         # Resizes array
-        self.items[len(self)] = item
-        self.size += 1
+        return self.append(item)
+        #self.items[len(self)] = item
+        #self.size += 1
 
     def pop(self): # Removes and returns the item at the top of the stack
         # Checks precondition
@@ -37,13 +38,21 @@ class Stack:
 def palindrome(input_str):
     # Defaults to false
     isPalindrome = False
-    # Checks for if reverse of string is equal to string
-    if  input_str == input_str[::-1]:
-        return True
-    else:
-        return isPalindrome
+    # Creates stack
+    stack = []
 
+    # Compares first and last elements of list 
+    # Adds element to end of list 
+    for s in input_str: 
+        stack.append(s)
+    
+    # Returns and removes element on top of stack
+    for s in input_str: 
+        if s != stack.pop():
+            return isPalindrome
+    return not isPalindrome
+        
 
 if __name__ == "__main__":
-    my_str = "noon"
-    print(palindrome(my_str)) # Correct Ouput: True
+    s = "noon"
+    print(palindrome(s)) # Correct Ouput: True
