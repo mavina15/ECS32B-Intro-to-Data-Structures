@@ -1,51 +1,51 @@
 '''
 File Name: problem_3.py
-Description:
+Description: function builds and returns instance of LinkedQueue with items in stack
 Author: Mel Avina-Beltran
 Date: 5/2/23
 '''
 #Reuse your Queue Implementation from Q2.
+
 class Queue:
 
-    def __init__(self, sourceCollection = None): # Constructor function
-        self.sourceCollection = sourceCollection
-        self.next = None
+    def __init__(self): # Constructor function
+        self.items = []
 
     def isEmpty(self): # Returns True if the queue is empty or False otherwise
         return len(self.items) == 0
 
-    def __len__(self): # Returns the number of items in the stack
-        return self.size
+    def len(self): # Returns the number of items in the stack
+        return len(self.items)
 
     def peek(self): # Returns the item at the front of the queue
-        # Checks precondition
-        return self.items[len(self)-1]
+        if self.isEmpty():
+            return None
+        return self.items[0]
 
     def add(self, item): # Adds item to the rear of the queue
-        self.items[len(self)] = item
-        self.size += 1
+        self.items.append(item)
 
     def pop(self): # Removes and returns the item at the front of the queue
-        # Checks precondition
-        oldItem = self.items[len(self)-1]
-        self.size = -1
-        # Resizes array
-        return oldItem
+        if self.isEmpty():
+            return None
+        return self.items.pop(0)
 
     def remove(self, index): # Removes and returns the item at index of the queue
         return self.items.pop(index)
 
-
 def stackToQueue(stack):
-    q = Queue()
+    # Creates queue
+    Q = Queue()
+
+    # While loop that checks that stack is not empty (ie. length of collection of data strucure/stack)
     while len(stack) > 0:
-        q.add(stack.pop())
-    return q
+        Q.add(stack.pop())
+    return Q
 
 if __name__ == "__main__":
     stack = [1,2,3]
     res=stackToQueue(stack)
-    print(res.pop()) #the autograder will use your Queue's pop() function, append to a list and compare with initial stack.
-'''
-Correct output of res would be a LinkedQueue in the order 3, 2, 1
-'''
+    # While loop that checks the length of the object (ie. res)
+    while res.len() > 0:
+        print(res.pop())
+
