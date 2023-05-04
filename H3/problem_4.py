@@ -1,6 +1,6 @@
 '''
 File Name: problem_4.py
-Description: 
+Description: complete and test linked and array stacks
 Author: Mel Avina-Beltran
 Date: 5/2/23
 '''
@@ -25,8 +25,7 @@ class Stack:
 
     def push(self, item): # Adds item to the top of the stack
         # Resizes array
-        self.items[len(self)] = item
-        self.size += 1
+        return self.append(item)
 
     def pop(self): # Removes and returns the item at the top of the stack
         # Checks precondition
@@ -36,23 +35,26 @@ class Stack:
         return oldItem
 
 def bracketsBalance(input_str,opening_list,closing_list):
-    if len(input_str) % 2 == 1:
-        return False
-    cheat_sheet = dict()
-    for i in range(len(opening_list)):
-        cheat_sheet[opening_list[i]] = closing_list[i]
-    pos = 0
+    # Defaults is Balanced to true
     isBalanced = True
-    stk = Stack()
 
-    #TODO: Your work here
-    # Return if input_str is balanced or not
+    # Creates stack from input string
+    stack = []
+
+    # For loop to iterate over each element in the stack
+    for i in input_str:
+        if i in opening_list:
+            stack.append(i)
+        elif i in closing_list:
+            # Checks if stack is empty and if last element is equal to first element
+            if not stack or opening_list[closing_list.index(i)] != stack.pop():
+                return not isBalanced
     return isBalanced
 
-    if __name__ == "__main__":
-        my_str = "([{))}"
-        opening_list=['(', '[', '{']
-        closing_list=[')', ')', '}']
-        print(bracketsBalance(my_str,opening_list,closing_list)) # Correct Output:
-        False
-        #TODO (optional): Your testing code here
+
+if __name__ == "__main__":
+    my_str = "([{))}"
+    opening_list=['(', '[', '{']
+    closing_list=[')', ')', '}']
+    print(bracketsBalance(my_str,opening_list,closing_list)) # Correct Output: False
+
