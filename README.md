@@ -1,4 +1,4 @@
-# Introduction to Data Structures
+# ECS 32B: Introduction to Data Structures
 
 ## Overview
 This repository serves as a comprehensive guide to understanding and implementing fundamental data structures using Python. From trees and heaps to searching, sorting, and graphs, this collection provides insights into the design and analysis of essential data structures.
