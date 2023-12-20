@@ -38,9 +38,7 @@ This repository serves as a comprehensive guide to understanding and implementin
 To explore and run the examples, clone this repository:
 
 ```bash
-git clone https:/github.com/mavina15
-/
-ECS32B-Intro-to-Data-Structures.git
+git clone https:/github.com/mavina15/ECS32B-Intro-to-Data-Structures.git
 ```
 
 ## Usage
